@@ -35,7 +35,7 @@ function App() {
           />
 
           <button className="btn" type="submit">
-            submit
+            generate
           </button>
         </form>
       </section>
