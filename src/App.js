@@ -13,7 +13,8 @@ function App() {
 
     try {
       let colors = new Values(color).all(10);
-      console.log("colors :", colors);
+      setList(colors);
+      setError(false);
     } catch (error) {
       setError(true);
       console.log("error :", error);
@@ -39,7 +40,17 @@ function App() {
         </form>
       </section>
       <section className="colors">
-        <h4>list goes here</h4>
+        {list.map((color, index) => {
+          const { rgb, weight, hex } = color;
+          return (
+            <SingleColor
+              key={index}
+              index={index}
+              rgb={rgb}
+              weight={weight}
+              hex={hex}></SingleColor>
+          );
+        })}
       </section>
     </>
   );
