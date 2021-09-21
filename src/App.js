@@ -10,7 +10,14 @@ function App() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("event :", event);
+
+    try {
+      let colors = new Values(color).all(10);
+      console.log("colors :", colors);
+    } catch (error) {
+      setError(true);
+      console.log("error :", error);
+    }
   };
 
   return (
@@ -23,7 +30,9 @@ function App() {
             placeholder="#f15025"
             value={color}
             onChange={(event) => setColor(event.target.value)}
+            className={`${error ? "error" : null}`}
           />
+
           <button className="btn" type="submit">
             submit
           </button>
